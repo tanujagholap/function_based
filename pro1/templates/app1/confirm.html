@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}
+    <title>Title</title>
+{% endblock %}
+{% block content %}
+    <h2>ARE YOU SURE</h2>
+    <form method="post">
+        {% csrf_token %}
+        <button>YES</button>
+        <a href="{% url 'show_url' %}">
+            <button type="button">NO</button>
+        </a>
+    </form>
+{% endblock %}

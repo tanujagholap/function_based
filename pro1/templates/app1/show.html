@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block title %}
+    <title>All Details Page</title>
+{% endblock %}
+{% block content %}
+    <table border="2px">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>CUSTOMER NAME</th>
+                <th>MOBILE NUMBER</th>
+                <th>GENDER</th>
+                <th>PRODUCT NAME</th>
+                <th>PRODUCT QUANTITY</th>
+                <th>PURCHASE DATE</th>
+                <th colspan="2">ACTION</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in form %}
+                <tr>
+                    <td>{{ i.id }}</td>
+                    <td>{{ i.customer_name }}</td>
+                    <td>{{ i.mobile_no }}</td>
+                    <td>{{ i.gender }}</td>
+                    <td>{{ i.product_name }}</td>
+                    <td>{{ i.product_quantity }}</td>
+                    <td>{{ i.purchase_date }}</td>
+                    <td>
+                        <a href="{% url 'update_url' i.id %}">
+                            <button>Update</button>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'delete_url' i.id %}">
+                            <button>delete</button>
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
